@@ -8,8 +8,11 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-red-600: oklch(57.7% 0.245 27.325);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -20,6 +23,7 @@
     --color-slate-100: oklch(96.8% 0.007 247.896);
     --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
@@ -204,6 +208,12 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -261,6 +271,9 @@
   .mx-35 {
     margin-inline: calc(var(--spacing) * 35);
   }
+  .my-1 {
+    margin-block: calc(var(--spacing) * 1);
+  }
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
@@ -291,6 +304,9 @@
   .mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
   .mr-10 {
     margin-right: calc(var(--spacing) * 10);
   }
@@ -318,6 +334,9 @@
   .mb-7 {
     margin-bottom: calc(var(--spacing) * 7);
   }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
@@ -329,6 +348,12 @@
   }
   .flex {
     display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
   }
   .h-70 {
     height: calc(var(--spacing) * 70);
@@ -395,6 +420,9 @@
   }
   .w-70 {
     width: calc(var(--spacing) * 70);
+  }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
   }
   .w-75 {
     width: calc(var(--spacing) * 75);
@@ -576,6 +604,12 @@
   .border-blue-700 {
     border-color: var(--color-blue-700);
   }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .border-gray-400 {
+    border-color: var(--color-gray-400);
+  }
   .border-gray-500 {
     border-color: var(--color-gray-500);
   }
@@ -587,6 +621,9 @@
   }
   .border-slate-100 {
     border-color: var(--color-slate-100);
+  }
+  .border-slate-200 {
+    border-color: var(--color-slate-200);
   }
   .border-zinc-300 {
     border-color: var(--color-zinc-300);
@@ -605,6 +642,9 @@
   }
   .bg-black {
     background-color: var(--color-black);
+  }
+  .bg-blue-400 {
+    background-color: var(--color-blue-400);
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
@@ -683,6 +723,9 @@
   }
   .p-10 {
     padding: calc(var(--spacing) * 10);
+  }
+  .p-20 {
+    padding: calc(var(--spacing) * 20);
   }
   .p-\[0\.2\] {
     padding: 0.2;
@@ -795,11 +838,29 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .text-blue-600 {
+    color: var(--color-blue-600);
+  }
+  .text-gray-200 {
+    color: var(--color-gray-200);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
   .text-gray-400 {
     color: var(--color-gray-400);
   }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
   .text-green-500 {
     color: var(--color-green-500);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
+  .text-red-600 {
+    color: var(--color-red-600);
   }
   .text-white {
     color: var(--color-white);
@@ -922,6 +983,16 @@
       }
     }
   }
+  .min-\[830px\]\:block {
+    @media (width >= 830px) {
+      display: block;
+    }
+  }
+  .min-\[830px\]\:flex-row {
+    @media (width >= 830px) {
+      flex-direction: row;
+    }
+  }
   .min-\[900px\]\:flex-row {
     @media (width >= 900px) {
       flex-direction: row;
@@ -940,6 +1011,11 @@
   .md\:ml-auto {
     @media (width >= 48rem) {
       margin-left: auto;
+    }
+  }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
     }
   }
   .md\:h-64 {
